@@ -158,7 +158,7 @@ server <- function(input, output, session) {
     )
   })
 
-  # Define server logic to create a box
+  ### Valueboxes
 
   output$boxavgRevBal <- renderValueBox({
     # Put value into box to plug into app
@@ -290,7 +290,7 @@ server <- function(input, output, session) {
     )
   })
 
-
+### End of valuebox code
 
 
 
