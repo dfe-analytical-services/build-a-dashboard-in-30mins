@@ -63,7 +63,7 @@ dashboard_panel <- function() {
                   h2("Time series line chart"),
                   box(
                     width = 12,
-                    plotlyOutput("lineRevBal")
+                    plotlyOutput("lineTimeSeries")
                   )
                 )
               )
