@@ -69,11 +69,11 @@ dashboard_panel <- function() {
               )
             ),
             tabPanel(
-              "Example panel 2",
+              "Teacher table",
               fluidRow(
                 column(
                   width = 12,
-                  h2("Outputs 2 (h2)"),
+                  h2("Teacher table"),
                   p("This is the standard paragraph style for adding guiding info around data content."),
                   column(
                     width = 12,

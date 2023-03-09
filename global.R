@@ -25,6 +25,7 @@ shhh(library(DT))
 shhh(library(xfun))
 shhh(library(metathis))
 shhh(library(shinyalert))
+shhh(library(tidyr))
 # shhh(library(shinya11y))
 
 # Functions ---------------------------------------------------------------------------------
@@ -102,10 +103,7 @@ dfAreas <- teacher_data %>%
   ) %>%
   distinct()
 
-choicesLAs <- teacher_data %>%
-  filter(geographic_level == "Local authority") %>%
-  select(geographic_level, area_name = la_name) %>%
-  arrange(area_name)
+
 
 choicesAreas <- teacher_data %>%
   filter(geographic_level == "National") %>%
