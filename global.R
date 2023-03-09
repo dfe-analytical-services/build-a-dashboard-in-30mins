@@ -110,6 +110,3 @@ choicesAreas <- dfAreas %>%
   select(geographic_level, area_name = country_name) %>%
   rbind(dfAreas %>% filter(geographic_level == "Regional") %>% select(geographic_level, area_name = region_name))
 
-choicesYears <- unique(dfRevBal$time_period)
-
-choicesPhase <- unique(dfRevBal$school_phase)

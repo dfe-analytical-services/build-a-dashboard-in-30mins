@@ -113,7 +113,6 @@ server <- function(input, output, session) {
 
   # Simple server stuff goes here ------------------------------------------------------------
   reactive_teacher_data <- reactive({
-    print(teacher_data)
     if(input$breakdown == 'grade') {
     teacher_data <- teacher_data %>% filter(
       area_name == input$selectArea,
@@ -136,22 +135,6 @@ server <- function(input, output, session) {
       layout(legend = list(orientation = "h", x = 0, y = -0.2))
   })
 
-  reactiveBenchmark <- reactive({
-    dfRevBal %>%
-      filter(
-        area_name %in% c(input$selectArea, input$selectBenchLAs),
-        school_phase == input$selectPhase,
-        year == max(year)
-      )
-  })
-
-  output$colBenchmark <- renderPlotly({
-    ggplotly(
-      plotAvgRevBenchmark(reactiveBenchmark()) %>%
-        config(displayModeBar = F),
-      height = 420
-    )
-  })
 
   output$tabBenchmark <- renderDataTable({
     datatable(
@@ -175,7 +158,7 @@ server <- function(input, output, session) {
   output$download_data <- downloadHandler(
     filename = "shiny_template_underlying_data.csv",
     content = function(file) {
-      write.csv(dfRevBal, file)
+      write.csv(teacher_data, file)
     }
   )
 
