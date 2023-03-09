@@ -113,6 +113,7 @@ server <- function(input, output, session) {
 
   # Simple server stuff goes here ------------------------------------------------------------
   reactive_teacher_data <- reactive({
+    print(teacher_data)
     if(input$breakdown == 'grade') {
     teacher_data <- teacher_data %>% filter(
       area_name == input$selectArea,
@@ -127,6 +128,9 @@ server <- function(input, output, session) {
 
   # Define server logic required to draw a histogram
   output$lineTimeSeries <- renderPlotly({
+    print(reactive_teacher_data())
+    print(input$breakdown)
+    print(input$heacount_fte)
     ggplotly(createTimeSeries(reactive_teacher_data(), input$breakdown, input$headcount_fte)) %>%
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = "h", x = 0, y = -0.2))

@@ -11,7 +11,7 @@
 # to either add the file to .gitignore or add an entry for the file into
 # datafiles_log.csv.
 
-teacher_data <- function(file = "data/stats_awayday_demo.csv") {
+read_teacher_data <- function(file = "data/stats_awayday_demo.csv") {
   # This reads in an example file. For the purposes of this demo, we're using the
   # latest LA expenditure data downloaded from the EES release.
   teacher_data <- read.csv(file)

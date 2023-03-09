@@ -94,7 +94,7 @@ google_analytics_key <- "Z967JJVQQX"
 source("R/read_data.R")
 
 # Read in the data
-teacher_data <- teacher_data()
+teacher_data <- read_teacher_data()
 # Get geographical levels from data
 dfAreas <- teacher_data %>%
   select(
@@ -105,10 +105,10 @@ dfAreas <- teacher_data %>%
 
 
 
-choicesAreas <- teacher_data %>%
+choicesAreas <- dfAreas %>%
   filter(geographic_level == "National") %>%
   select(geographic_level, area_name = country_name) %>%
-  rbind(teacher_data %>% filter(geographic_level == "Regional") %>% select(geographic_level, area_name = region_name))
+  rbind(dfAreas %>% filter(geographic_level == "Regional") %>% select(geographic_level, area_name = region_name))
 
 choicesYears <- unique(dfRevBal$time_period)
 
